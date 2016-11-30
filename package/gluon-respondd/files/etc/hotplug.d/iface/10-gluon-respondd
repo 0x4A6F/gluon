@@ -21,7 +21,7 @@ case "$ACTION" in
 		DEVICE="$(ifname_to_dev "$INTERFACE")"
 		MESH="$(cat "/sys/class/net/$DEVICE/batman_adv/mesh_iface" 2>/dev/null)"
 
-		[ "$MESH" = "bat0" -o "$INTERFACE" = "client" ] || exit 0
+		[ "$MESH" = 'bat0' -o "$INTERFACE" = 'local_node' ] || exit 0
 
 		DEVS=$(cat $DEVLIST 2>/dev/null; echo $DEVICE $INTERFACE)
 
